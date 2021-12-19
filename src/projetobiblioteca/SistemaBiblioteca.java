@@ -6,7 +6,7 @@ public class SistemaBiblioteca {
 		Livro acesso = new Livro(null, null, null, 0, 0, 0);
 		
 		acesso.acesso();
-		acesso.consultarEstoque();
+		acesso.cadastrarLivro();
 
 	}
 

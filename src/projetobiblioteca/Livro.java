@@ -125,6 +125,7 @@ public class Livro implements Sistema{
 	public void cadastrarLivro() {
 		if(acesso.equals("liberado") == true) {
 			do {
+				ler.nextLine();
 				System.out.println("Digite o Titulo do livro: ");
 				this.setTitulo(ler.nextLine());
 				System.out.println("Informe a Categoria: ");
@@ -137,10 +138,13 @@ public class Livro implements Sistema{
 				this.setNumeroPagina(ler.nextInt());
 				System.out.println("Quantidade em Estoque: ");
 				this.setQuantidadeEstoque(ler.nextInt());
+				livro.add(new Livro(this.titulo, this.categoria, this.autor, this.codigo, this.numeroPagina, this.quantidadeEstoque));
 				
 				System.out.println("Quer cadastrar mais algum livro?\nSe sim, digite 1 | Se não, digite 2.");
 				x = ler.nextInt();
-			}while(x != 1);
+			}while(x == 1);
+			System.out.println("Estoque atual: ");
+			this.consultarEstoque();
 			
 		}else {
 			System.out.println("Você não tem acesso ao cadastro de livros");
@@ -182,8 +186,8 @@ public class Livro implements Sistema{
 
 	@Override
 	public String toString() {
-		return "Livro: " + titulo + ", categoria: " + categoria + ", autor: " + autor + ", codigo: " + codigo
-				+ ", numeroPagina: " + numeroPagina + ", Quantidade em Estoque: " + quantidadeEstoque + "\n";
+		return "\nLivro: " + titulo + "\nCategoria: " + categoria + "\nAutor: " + autor + "\nCodigo: " + codigo
+				+ "\nNumeroPagina: " + numeroPagina + "\nQuantidade em Estoque: " + quantidadeEstoque + "\n--------------------------";
 	}
 	
 	
