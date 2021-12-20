@@ -91,14 +91,14 @@ public class Livro implements Sistema{
 		acesso = "liberado";
 	}
 	
-	@Override
-	public void estoque() {
+	private void estoque() {
 		if(acesso.equals("liberado") == true) {
 			livro.add(new Livro("Naruto", "Manga", "Kishimoto", 123, 180, 5));
 			livro.add(new Livro("Dragon ball", "Manga", "Kishimoto", 124, 180, 8));
 			livro.add(new Livro("Homem Aranha", "Hq", "Stan Lee", 125, 200, 5));
 			livro.add(new Livro("Capitão America", "Hq", "Stan Lee", 126, 100, 5));
 			livro.add(new Livro("Um Livro", "Livro", "Algém", 127, 70, 5));
+			livro.add(new Livro("AmendoBobo", "Livro", "Bob Esponja", 8789, 5000, 2));
 		}else {
 			System.out.println("Você não tem acesso ao estoque");
 		}
@@ -144,7 +144,7 @@ public class Livro implements Sistema{
 				x = ler.nextInt();
 			}while(x == 1);
 			System.out.println("Estoque atual: ");
-			this.consultarEstoque();
+			System.out.println(livro);
 			
 		}else {
 			System.out.println("Você não tem acesso ao cadastro de livros");
@@ -159,30 +159,46 @@ public class Livro implements Sistema{
 	@Override
 	public void retirarLivro() {
 		if(acesso.equals("liberado") == true) {
-			System.out.println("Você tem acesso a devolução de livros");
-		}else {
+			System.out.println("Qual livro será emprestado? ");
+			int y = ler.nextInt();
+			if(livro.get(y).quantidadeEstoque > 0) {
+				livro.get(y).setQuantidadeEstoque(livro.get(y).quantidadeEstoque - 1);
+				System.out.println("Livro emprestado!!! Muito obrigado\n");
+				System.out.println("\nEstoque atual desse livro: \n" + livro.get(y));
+			}else {
+				System.out.println("Infelizmente não temos estoque desse livro");
+			}
+
+			}else {
 			System.out.println("Você não tem acesso a devolução de livros");
 		}
 		
 	}
-
-
-
-
 
 	@Override
 	public void devolverLivro() {
 		if(acesso.equals("liberado") == true) {
-			System.out.println("Você tem acesso a devolução de livros");
+			System.out.println("Qual unidade você quer devolver?");
+			int y = ler.nextInt();
+			
+			livro.get(y).setQuantidadeEstoque(livro.get(y).getQuantidadeEstoque() + 1);
+			System.out.println("Livro Devolvido!!!\n");
+			System.out.println(livro.get(y));
 		}else {
 			System.out.println("Você não tem acesso a devolução de livros");
 		}
 		
 	}
-
-
-
-
+	
+	@Override
+	public void excluirLivro() {
+		System.out.println("Qual livro você quer excluir?");
+		int y = ler.nextInt();
+		livro.remove(y);
+		System.out.println("Livro removido!!!\n");
+		System.out.println(livro);
+		
+	}
 
 	@Override
 	public String toString() {
