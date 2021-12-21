@@ -7,7 +7,11 @@ public class SistemaBiblioteca {
 		
 		
 		acesso.acesso();
+		acesso.consultarEstoque();
+		acesso.cadastrarLivro();
 		acesso.retirarLivro();
+		acesso.devolverLivro();
+		acesso.excluirLivro();
 
 	}
 

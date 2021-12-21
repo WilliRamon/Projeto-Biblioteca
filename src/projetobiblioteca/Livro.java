@@ -126,7 +126,6 @@ public class Livro implements Sistema {
 	@Override
 	public void cadastrarLivro() {
 		if (acesso.equals("liberado") == true) {
-			this.estoque();
 			do {
 				ler.nextLine();
 				System.out.println("Digite o Titulo do livro: ");
@@ -171,7 +170,6 @@ public class Livro implements Sistema {
 	@Override
 	public void retirarLivro() {
 		if (acesso.equals("liberado") == true) {
-			this.estoque();
 			int y, check;
 			do {
 			System.out.println("Qual livro será emprestado? ");
@@ -198,7 +196,6 @@ public class Livro implements Sistema {
 	@Override
 	public void devolverLivro() {
 		if (acesso.equals("liberado") == true) {
-			this.estoque();
 			int y, check;
 			do {
 				System.out.println("Qual unidade você quer devolver?");
@@ -220,7 +217,6 @@ public class Livro implements Sistema {
 	@Override
 	public void excluirLivro() {
 		if (acesso.equals("liberado") == true) {
-			this.estoque();
 			int y, check;
 			do {
 				System.out.println("Qual livro você quer excluir?");
@@ -244,12 +240,6 @@ public class Livro implements Sistema {
 		return "\nLivro: " + titulo + "\nCategoria: " + categoria + "\nAutor: " + autor + "\nCodigo: " + codigo
 				+ "\nNumeroPagina: " + numeroPagina + "\nQuantidade em Estoque: " + quantidadeEstoque
 				+ "\n--------------------------";
-	}
-
-	public void teste() {
-		this.estoque();
-		System.out.println("Digite o titulo do livro");
-
 	}
 
 }
