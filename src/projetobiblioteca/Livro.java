@@ -17,6 +17,7 @@ public class Livro implements Sistema{
 	int senha;
 	String acesso = " ";
 	int x = 0;
+	boolean confirma = false;
 	
 	
 	
@@ -133,7 +134,17 @@ public class Livro implements Sistema{
 				System.out.println("Informe o Autor: ");
 				this.setAutor(ler.nextLine());
 				System.out.println("Informe o Código: ");
-				this.setCodigo(ler.nextInt());
+				int z = ler.nextInt();
+				do {
+					confirma = false;
+				for(x = 0; x < livro.size(); x++) {
+					if(livro.get(x).codigo == z) {
+						System.out.println("Código já existente. Insira um novo código");
+						confirma = true;
+					}
+				}
+				}while(confirma == false);
+				this.setCodigo(z);
 				System.out.println("Informe a quantidade de paginas: ");
 				this.setNumeroPagina(ler.nextInt());
 				System.out.println("Quantidade em Estoque: ");
