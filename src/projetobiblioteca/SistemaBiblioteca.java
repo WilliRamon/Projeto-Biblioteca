@@ -7,7 +7,7 @@ public class SistemaBiblioteca {
 		
 		
 		acesso.acesso();
-		acesso.cadastrarLivro();
+		acesso.retirarLivro();
 
 	}
 
