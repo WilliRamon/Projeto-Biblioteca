@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Livro implements Sistema {
 	Scanner ler = new Scanner(System.in);
 	ArrayList<Livro> livro = new ArrayList<>();
+	Cliente cliente01 = new Cliente(null, null, 0, null, 0);
 
 	private String titulo;
 	private String categoria;
@@ -13,6 +14,7 @@ public class Livro implements Sistema {
 	private int codigo;
 	private int numeroPagina;
 	private int quantidadeEstoque;
+	boolean validado = false;
 	String login;
 	String acesso = " ";
 	int senha;
@@ -154,7 +156,6 @@ public class Livro implements Sistema {
 				this.setQuantidadeEstoque(ler.nextInt());
 				livro.add(new Livro(this.titulo, this.categoria, this.autor, this.codigo, this.numeroPagina,
 						this.quantidadeEstoque));
-
 				System.out.println("Quer cadastrar mais algum livro?\nSe sim, digite 1 | Se não, digite 2.");
 				x = ler.nextInt();
 			} while (x == 1);
@@ -171,6 +172,8 @@ public class Livro implements Sistema {
 	public void retirarLivro() {
 		if (acesso.equals("liberado") == true) {
 			int y, check;
+			//
+			validado = cliente01.validarCpf();
 			do {
 			System.out.println("Qual livro será emprestado? ");
 			y = ler.nextInt();
@@ -181,6 +184,7 @@ public class Livro implements Sistema {
 		} while(check != 1);
 			if (livro.get(y).quantidadeEstoque > 0) {
 				livro.get(y).setQuantidadeEstoque(livro.get(y).quantidadeEstoque - 1);
+				cliente01.clienteRetirada("oi");
 				System.out.println("Livro emprestado!!! Muito obrigado\n");
 				System.out.println("\nEstoque atual desse livro: \n" + livro.get(y));
 			} else {
