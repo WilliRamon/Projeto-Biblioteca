@@ -13,15 +13,15 @@ public class Cliente {
 	boolean validado = false;
 	Scanner ler = new Scanner(System.in);
 	ArrayList<Cliente> cliente = new ArrayList<>();
-	
-	//MÉTODO CONSTRUTOR - INICIO
+
+	// MÉTODO CONSTRUTOR - INICIO
 	public Cliente(String nomeCliente, String enderecoCliente, long cpf) {
 		this.setNomeCliente(nomeCliente);
 		this.setEnderecoCliente(enderecoCliente);
 		this.setCpf(cpf);
 	}
-	//MÉTODO CONSTRUTOR - FINAL
-	
+	// MÉTODO CONSTRUTOR - FINAL
+
 	public void cadastrarCliente() {
 		System.out.println("TELA PARA CADASTRAR CLIENTE");
 		System.out.println("Digite o nome do Cliente");
@@ -34,59 +34,66 @@ public class Cliente {
 		System.out.println("Cliente Cadastrado!!!");
 		System.out.println(cliente);
 	}
-	
+
 	public Boolean validarCpf() {
 		int x;
 		System.out.println("Primeiramente, informe seu CPF");
 		long y = ler.nextLong();
 		do {
 			confirma = false;
-		for(x = 0; x < cliente.size(); x++) {
-			if(cliente.get(x).cpf != y) {
-				System.out.println("CPF não encontrado! Digite novamente");
-				y = ler.nextLong();
-				confirma = true;
-				break;
+			for (x = 0; x < cliente.size(); x++) {
+				if (cliente.get(x).cpf != y) {
+					System.out.println("CPF não encontrado! Digite novamente");
+					y = ler.nextLong();
+					confirma = true;
+					break;
+				}
 			}
-		}
 		} while (confirma == true);
 		System.out.println("CPF encontrado!!!");
 		return validado = true;
 	}
-		
-	
-	
-	//MÉTODOS ESPECIAIS - INICIO
+
+	// MÉTODOS ESPECIAIS - INICIO
 	public String getNomeCliente() {
 		return nomeCliente;
 	}
+
 	public void setNomeCliente(String nomeCliente) {
 		this.nomeCliente = nomeCliente;
 	}
+
 	public String getEnderecoCliente() {
 		return enderecoCliente;
 	}
+
 	public void setEnderecoCliente(String enderecoCliente) {
 		this.enderecoCliente = enderecoCliente;
 	}
+
 	public long getCpf() {
 		return cpf;
 	}
+
 	public void setCpf(long cpf) {
 		this.cpf = cpf;
 	}
+
 	public String getLivroEmprestado() {
 		return livroEmprestado;
 	}
+
 	public void setLivroEmprestado(String livroEmprestado) {
 		this.livroEmprestado = livroEmprestado;
 	}
+
 	public int getQuantidadeEmprestimo() {
 		return quantidadeEmprestimo;
 	}
+
 	public void setQuantidadeEmprestimo(int quantidadeEmprestimo) {
 		this.quantidadeEmprestimo = quantidadeEmprestimo;
 	}
-	//MÉTODOS ESPECIAIS - FINAL
-	
+	// MÉTODOS ESPECIAIS - FINAL
+
 }
