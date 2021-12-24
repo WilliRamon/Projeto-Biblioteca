@@ -177,14 +177,15 @@ public class Livro implements Sistema {
 			do {
 			System.out.println("Qual livro será emprestado? ");
 			y = ler.nextInt();
-			System.out.println(livro.get(y));
+			System.out.println(livro.get(y));	
 			System.out.println("Para confirmar, digite 1");
 			System.out.println("Para cancelar, digite 2");
 			check = ler.nextInt();
 		} while(check != 1);
 			if (livro.get(y).quantidadeEstoque > 0) {
 				livro.get(y).setQuantidadeEstoque(livro.get(y).quantidadeEstoque - 1);
-				cliente01.clienteRetirada("oi");
+				cliente01.setLivroEmprestado(livro.get(y).titulo);
+				cliente01.clienteRetirada();
 				System.out.println("Livro emprestado!!! Muito obrigado\n");
 				System.out.println("\nEstoque atual desse livro: \n" + livro.get(y));
 			} else {

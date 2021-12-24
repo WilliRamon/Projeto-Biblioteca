@@ -16,11 +16,11 @@ public class Cliente {
 	ArrayList<Cliente> cliente = new ArrayList<>();
 
 	// MÉTODO CONSTRUTOR - INICIO
-	public Cliente(String nomeCliente, String enderecoCliente, long cpf, String livroEmprestimo, int quantidadeEmprestimo) {
+	public Cliente(String nomeCliente, String enderecoCliente, long cpf, String livroEmprestado, int quantidadeEmprestimo) {
 		this.setNomeCliente(nomeCliente);
 		this.setEnderecoCliente(enderecoCliente);
 		this.setCpf(cpf);
-		this.setLivroEmprestado(livroEmprestimo);
+		this.setLivroEmprestado(livroEmprestado);
 		this.setQuantidadeEmprestimo(quantidadeEmprestimo);
 	}
 	// MÉTODO CONSTRUTOR - FINAL
@@ -57,8 +57,8 @@ public class Cliente {
 		return validado = true;
 	}
 	
-	public void clienteRetirada(String titulo) {
-		cliente.get(0).livroEmprestado = titulo;
+	public void clienteRetirada() {
+		//cliente.get(x).livroEmprestado = titulo;
 		this.setQuantidadeEmprestimo(getQuantidadeEmprestimo() + 1);
 		System.out.println(cliente);
 	}
