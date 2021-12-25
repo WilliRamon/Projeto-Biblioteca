@@ -89,6 +89,7 @@ public class Controle implements Sistema {
 	@Override
 	public void consultarEstoque() {
 		if (acesso.equals("liberado") == true) {
+			System.out.println("========CONSULTA DO ESTOQUE========");
 			System.out.println(listaLivro);
 		} else {
 			System.out.println("Você não tem acesso ao estoque");
@@ -99,6 +100,7 @@ public class Controle implements Sistema {
 	@Override
 	public void consultarCliente() {
 		if (acesso.equals("liberado") == true) {
+			System.out.println("========CONSULTA DE CADASTROS========");
 			System.out.println(listaCliente);
 		} else {
 			System.out.println("Você não tem acesso ao estoque");
@@ -128,6 +130,7 @@ public class Controle implements Sistema {
 	@Override
 	public void cadastrarLivro() {
 		if (acesso.equals("liberado") == true) {
+			System.out.println("========CADASTRAR EXEMPLAR========");
 			do {
 				ler.nextLine();
 				System.out.println("Digite o Titulo do livro: ");
@@ -169,6 +172,8 @@ public class Controle implements Sistema {
 
 	@Override
 	public void cadastrarCliente() {
+		if (acesso.equals("liberado") == true) {
+		System.out.println("========CADASTRAR CLIENTE========");
 		do {
 			ler.nextLine();
 			System.out.println("TELA PARA CADASTRAR CLIENTE");
@@ -197,11 +202,15 @@ public class Controle implements Sistema {
 		} while (x == 1);
 		System.out.println("Cliente Cadastrado!!!");
 		System.out.println(listaCliente);
+		} else {
+			System.out.println("Você não tem acesso ao cadastro de livros");
+		}
 	}
 
 	@Override
 	public void retirarLivro() {
 		if (acesso.equals("liberado") == true) {
+			System.out.println("========EMPRESTAR EXEMPLAR========");
 			int y, check;
 			this.validarCpf();
 			if (listaCliente.get(localizarCliente).getQuantidadeEmprestimo() == 0) {
@@ -237,6 +246,7 @@ public class Controle implements Sistema {
 	@Override
 	public void devolverLivro() {
 		if (acesso.equals("liberado") == true) {
+			System.out.println("========DEVOLUÇÃO DE EXEMPLAR========");
 			int y, check;
 			this.validarCpf();
 			while (listaCliente.get(localizarCliente).getQuantidadeEmprestimo() == 0) {
@@ -267,6 +277,7 @@ public class Controle implements Sistema {
 	@Override
 	public void excluirLivro() {
 		if (acesso.equals("liberado") == true) {
+			System.out.println("========EXCLUIR REGISTRO DE EXEMPLAR========");
 			int y, check;
 			do {
 				System.out.println("Qual livro você quer excluir?");
@@ -288,6 +299,7 @@ public class Controle implements Sistema {
 	@Override
 	public void excluirCliente() {
 		if (acesso.equals("liberado") == true) {
+			System.out.println("========EXCLUIR CADASTRO========");
 			int y, check;
 			do {
 				System.out.println("Qual Cadastro você quer excluir?");

@@ -7,11 +7,18 @@ public class SistemaBiblioteca {
 		Controle controle = new Controle();
 
 		controle.acesso();
+		controle.consultarEstoque();
+		controle.consultarCliente();
+		controle.cadastrarLivro();
+		controle.cadastrarCliente();
 		controle.retirarLivro();
-		controle.retirarLivro();
+		controle.consultarPendencias();
+		controle.devolverLivro();
+		controle.excluirLivro();
+		controle.excluirCliente();
 
 		
-		controle.consultarPendencias();
+		
 		
 
 	}
