@@ -3,9 +3,9 @@ package projetobiblioteca;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Livro implements Sistema {
+public class Livro{
 	Scanner ler = new Scanner(System.in);
-	ArrayList<Livro> livro = new ArrayList<>();
+	ArrayList<Livro> listaLivro = new ArrayList<>();
 	Cliente cliente01 = new Cliente(null, null, 0, null, 0);
 
 	private String titulo;
@@ -78,7 +78,7 @@ public class Livro implements Sistema {
 		this.quantidadeEstoque = quantidadeEstoque;
 	}
 
-	@Override
+	/*@Override
 	public void acesso() {
 		do {
 			System.out.println("Para ter acesso ao Sistema, primeiro, digite seu login: ");
@@ -98,23 +98,22 @@ public class Livro implements Sistema {
 			}
 		} while ((login.equals("admin") == false) && (senha != 123));
 		acesso = "liberado";
-	}
+	}*/
 
-	private void estoque() {
+	/*public void estoque() {
 		if (acesso.equals("liberado") == true) {
-			livro.add(new Livro("Naruto", "Manga", "Kishimoto", 123, 180, 5));
-			livro.add(new Livro("Dragon ball", "Manga", "Kishimoto", 124, 180, 8));
-			livro.add(new Livro("Homem Aranha", "Hq", "Stan Lee", 125, 200, 5));
-			livro.add(new Livro("Capitão America", "Hq", "Stan Lee", 126, 100, 5));
-			livro.add(new Livro("Um Livro", "Livro", "Algém", 127, 70, 5));
-			livro.add(new Livro("AmendoBobo", "Livro", "Bob Esponja", 8789, 5000, 2));
+			listaLivro.add(new Livro("Naruto", "Manga", "Kishimoto", 123, 180, 5));
+			listaLivro.add(new Livro("Dragon ball", "Manga", "Kishimoto", 124, 180, 8));
+			listaLivro.add(new Livro("Homem Aranha", "Hq", "Stan Lee", 125, 200, 5));
+			listaLivro.add(new Livro("Capitão America", "Hq", "Stan Lee", 126, 100, 5));
+			listaLivro.add(new Livro("Um Livro", "Livro", "Algém", 127, 70, 5));
+			listaLivro.add(new Livro("AmendoBobo", "Livro", "Bob Esponja", 8789, 5000, 2));
 		} else {
 			System.out.println("Você não tem acesso ao estoque");
 		}
+	}*/
 
-	}
-
-	@Override
+	/*@Override
 	public void consultarEstoque() {
 		if (acesso.equals("liberado") == true) {
 			this.estoque();
@@ -123,9 +122,9 @@ public class Livro implements Sistema {
 			System.out.println("Você não tem acesso ao estoque");
 		}
 
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public void cadastrarLivro() {
 		if (acesso.equals("liberado") == true) {
 			do {
@@ -166,9 +165,9 @@ public class Livro implements Sistema {
 			System.out.println("Você não tem acesso ao cadastro de livros");
 		}
 
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public void retirarLivro() {
 		if (acesso.equals("liberado") == true) {
 			int y, check;
@@ -196,9 +195,9 @@ public class Livro implements Sistema {
 			System.out.println("Você não tem acesso a devolução de livros");
 		}
 
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public void devolverLivro() {
 		if (acesso.equals("liberado") == true) {
 			int y, check;
@@ -217,9 +216,9 @@ public class Livro implements Sistema {
 			System.out.println("Você não tem acesso a devolução de livros");
 		}
 
-	}
+	}*/
 
-	@Override
+	/*@Override
 	public void excluirLivro() {
 		if (acesso.equals("liberado") == true) {
 			int y, check;
@@ -238,7 +237,7 @@ public class Livro implements Sistema {
 			System.out.println("Você não tem acesso a devolução de livros");
 		}
 
-	}
+	}*/
 
 	@Override
 	public String toString() {

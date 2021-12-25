@@ -25,7 +25,7 @@ public class Cliente {
 	}
 	// MÉTODO CONSTRUTOR - FINAL
 
-	public void cadastrarCliente() {
+	/*public void cadastrarCliente() {
 		System.out.println("TELA PARA CADASTRAR CLIENTE");
 		System.out.println("Digite o nome do Cliente");
 		this.setNomeCliente(ler.nextLine());
@@ -37,7 +37,7 @@ public class Cliente {
 		System.out.println("Cliente Cadastrado!!!");
 		System.out.println(cliente);
 		ler.nextLine();
-	}
+	}*/
 
 	public Boolean validarCpf() {
 		System.out.println("Primeiramente, informe seu CPF");
@@ -109,7 +109,7 @@ public class Cliente {
 	@Override
 	public String toString() {
 		return "\nNome do Cliente: " + nomeCliente + "\nEndereço Cliente: " + enderecoCliente + "\nCpf: " + cpf
-				+ "\nLivro Emprestado: " + livroEmprestado + "\nQuantidade Emprestimo: " + quantidadeEmprestimo;
+				+ "\nLivro Emprestado: " + livroEmprestado + "\nQuantidade Emprestimo: " + quantidadeEmprestimo + "\n--------------------------";
 	}
 	//MÉTODO toSTRING - FINAL
 	
