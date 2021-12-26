@@ -173,35 +173,35 @@ public class Controle implements Sistema {
 	@Override
 	public void cadastrarCliente() {
 		if (acesso.equals("liberado") == true) {
-		System.out.println("========CADASTRAR CLIENTE========");
-		do {
-			ler.nextLine();
-			System.out.println("TELA PARA CADASTRAR CLIENTE");
-			System.out.println("Digite o nome do Cliente");
-			cliente.setNomeCliente(ler.nextLine());
-			System.out.println("Digite o endereço do Cliente");
-			cliente.setEnderecoCliente(ler.nextLine());
-			System.out.println("Digite o CPF do Cliente");
-			int z = ler.nextInt();
+			System.out.println("========CADASTRAR CLIENTE========");
 			do {
-				confirma = false;
-				for (int y = 0; y < listaCliente.size(); y++) {
-					if (listaCliente.get(y).getCpf() == z) {
-						System.out.println("CPF já existente. Digite outro CPF");
-						z = ler.nextInt();
-						confirma = true;
-						break;
+				ler.nextLine();
+				System.out.println("TELA PARA CADASTRAR CLIENTE");
+				System.out.println("Digite o nome do Cliente");
+				cliente.setNomeCliente(ler.nextLine());
+				System.out.println("Digite o endereço do Cliente");
+				cliente.setEnderecoCliente(ler.nextLine());
+				System.out.println("Digite o CPF do Cliente");
+				int z = ler.nextInt();
+				do {
+					confirma = false;
+					for (int y = 0; y < listaCliente.size(); y++) {
+						if (listaCliente.get(y).getCpf() == z) {
+							System.out.println("CPF já existente. Digite outro CPF");
+							z = ler.nextInt();
+							confirma = true;
+							break;
+						}
 					}
-				}
-			} while (confirma == true);
-			cliente.setCpf(z);
-			listaCliente.add(new Cliente(cliente.getNomeCliente(), cliente.getEnderecoCliente(), cliente.getCpf(),
-					cliente.getLivroEmprestado(), cliente.getQuantidadeEmprestimo()));
-			System.out.println("Quer cadastrar mais algum Cliente?\nSe sim, digite 1 | Se não, digite 2.");
-			x = ler.nextInt();
-		} while (x == 1);
-		System.out.println("Cliente Cadastrado!!!");
-		System.out.println(listaCliente);
+				} while (confirma == true);
+				cliente.setCpf(z);
+				listaCliente.add(new Cliente(cliente.getNomeCliente(), cliente.getEnderecoCliente(), cliente.getCpf(),
+						cliente.getLivroEmprestado(), cliente.getQuantidadeEmprestimo()));
+				System.out.println("Quer cadastrar mais algum Cliente?\nSe sim, digite 1 | Se não, digite 2.");
+				x = ler.nextInt();
+			} while (x == 1);
+			System.out.println("Cliente Cadastrado!!!");
+			System.out.println(listaCliente);
 		} else {
 			System.out.println("Você não tem acesso ao cadastro de livros");
 		}
@@ -211,6 +211,7 @@ public class Controle implements Sistema {
 	public void retirarLivro() {
 		if (acesso.equals("liberado") == true) {
 			System.out.println("========EMPRESTAR EXEMPLAR========");
+			this.consultarEstoque();
 			int y, check;
 			this.validarCpf();
 			if (listaCliente.get(localizarCliente).getQuantidadeEmprestimo() == 0) {
@@ -230,11 +231,12 @@ public class Controle implements Sistema {
 					System.out.println("Livro emprestado!!! Muito obrigado\n");
 					System.out.println("\nEstoque atual desse livro: \n" + listaLivro.get(y));
 					System.out.println("\nDados do Cliente: \n" + listaCliente.get(localizarCliente));
-				}else {
+				} else {
 					System.out.println("Infelizmente não temos estoque desse livro");
-			}
-			}else {
-				System.out.println("Não será possível realizar novo emprestimo! Cliente precisa devolver ultimo exemplar");
+				}
+			} else {
+				System.out.println(
+						"Não será possível realizar novo emprestimo! Cliente precisa devolver ultimo exemplar");
 			}
 
 		} else {
@@ -247,26 +249,33 @@ public class Controle implements Sistema {
 	public void devolverLivro() {
 		if (acesso.equals("liberado") == true) {
 			System.out.println("========DEVOLUÇÃO DE EXEMPLAR========");
-			int y, check;
-			this.validarCpf();
-			while (listaCliente.get(localizarCliente).getQuantidadeEmprestimo() == 0) {
-				System.out.println("Cliente não possui nenhum livro para ser devolvido.");
-				this.validarCpf();
-			}
+			int localizaLivro=0, check;
 			do {
-				System.out.println("Qual unidade você quer devolver?");
-				y = ler.nextInt();
-				System.out.println(listaLivro.get(y));
+				this.validarCpf();
+				while (listaCliente.get(localizarCliente).getQuantidadeEmprestimo() == 0) {
+					System.out.println("Cliente não possui nenhum livro para ser devolvido.");
+					this.validarCpf();
+				}
+				System.out.println("O Cliente " + listaCliente.get(localizarCliente).getNomeCliente()
+						+ " deseja devolver o livro " + listaCliente.get(localizarCliente).getLivroEmprestado() + "?");
 				System.out.println("Para confirmar, digite 1");
 				System.out.println("Para cancelar, digite 2");
 				check = ler.nextInt();
+				if (check == 2) {
+					System.out.println("Sendo assim, digite outro CPF");
+				}
 			} while (check != 1);
-			listaLivro.get(y).setQuantidadeEstoque(listaLivro.get(y).getQuantidadeEstoque() + 1);
+			for(int y = 0; y < listaLivro.size(); y++) {
+				if(listaLivro.get(y).getTitulo().equals(listaCliente.get(localizarCliente).getLivroEmprestado())) {
+					localizaLivro = y;
+				}
+			}
+			listaLivro.get(localizaLivro).setQuantidadeEstoque(listaLivro.get(localizaLivro).getQuantidadeEstoque() + 1);
 			listaCliente.get(localizarCliente).setLivroEmprestado(null);
 			listaCliente.get(localizarCliente)
 					.setQuantidadeEmprestimo(listaCliente.get(localizarCliente).getQuantidadeEmprestimo() - 1);
 			System.out.println("Livro Devolvido!!!\n");
-			System.out.println(listaLivro.get(y));
+			System.out.println(listaLivro.get(localizaLivro));
 			System.out.println("\nDados do Cliente: \n" + listaCliente.get(localizarCliente));
 		} else {
 			System.out.println("Você não tem acesso a devolução de livros");

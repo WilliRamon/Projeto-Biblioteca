@@ -1,8 +1,7 @@
 package projetobiblioteca;
 
+public class Livro {
 
-public class Livro{
-	
 	private String titulo;
 	private String categoria;
 	private String autor;
@@ -18,13 +17,13 @@ public class Livro{
 		this.setNumeroPagina(numeroPagina);
 		this.setQuantidadeEstoque(quantidadeEsoque);
 	}
+
 	@Override
 	public String toString() {
 		return "\nLivro: " + titulo + "\nCategoria: " + categoria + "\nAutor: " + autor + "\nCodigo: " + codigo
 				+ "\nNumeroPagina: " + numeroPagina + "\nQuantidade em Estoque: " + quantidadeEstoque
 				+ "\n--------------------------";
 	}
-
 
 	public String getTitulo() {
 		return titulo;

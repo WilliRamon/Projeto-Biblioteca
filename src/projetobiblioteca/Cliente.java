@@ -1,16 +1,16 @@
 package projetobiblioteca;
 
 public class Cliente {
-	
+
 	private String nomeCliente;
 	private String enderecoCliente;
 	private long cpf;
 	private String livroEmprestado;
 	private int quantidadeEmprestimo;
 
-
 	// MÉTODO CONSTRUTOR - INICIO
-	public Cliente(String nomeCliente, String enderecoCliente, long cpf, String livroEmprestado, int quantidadeEmprestimo) {
+	public Cliente(String nomeCliente, String enderecoCliente, long cpf, String livroEmprestado,
+			int quantidadeEmprestimo) {
 		this.setNomeCliente(nomeCliente);
 		this.setEnderecoCliente(enderecoCliente);
 		this.setCpf(cpf);
@@ -18,15 +18,15 @@ public class Cliente {
 		this.setQuantidadeEmprestimo(quantidadeEmprestimo);
 	}
 	// MÉTODO CONSTRUTOR - FINAL
-	
-	//MÉTODO toSTRING - INICIO
+
+	// MÉTODO toSTRING - INICIO
 	@Override
 	public String toString() {
 		return "\nNome do Cliente: " + nomeCliente + "\nEndereço Cliente: " + enderecoCliente + "\nCpf: " + cpf
-				+ "\nLivro Emprestado: " + livroEmprestado + "\nQuantidade Emprestimo: " + quantidadeEmprestimo + "\n--------------------------";
+				+ "\nLivro Emprestado: " + livroEmprestado + "\nQuantidade Emprestimo: " + quantidadeEmprestimo
+				+ "\n--------------------------";
 	}
-	//MÉTODO toSTRING - FINAL
-
+	// MÉTODO toSTRING - FINAL
 
 	// MÉTODOS ESPECIAIS - INICIO
 	public String getNomeCliente() {
@@ -69,9 +69,5 @@ public class Cliente {
 		this.quantidadeEmprestimo = quantidadeEmprestimo;
 	}
 	// MÉTODOS ESPECIAIS - FINAL
-
-
-	
-	
 
 }
