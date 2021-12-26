@@ -213,6 +213,12 @@ public class Controle implements Sistema {
 			System.out.println("========EMPRESTAR EXEMPLAR========");
 			this.consultarEstoque();
 			int y, check;
+			System.out.println("Você tem cadastro em nossa Biblioteca?");
+			System.out.println("Se Sim, Digite 1\nSe não, Digite 2");
+			int confirme = ler.nextInt();
+			if(confirme == 2) {
+				this.cadastrarCliente();
+			}
 			this.validarCpf();
 			if (listaCliente.get(localizarCliente).getQuantidadeEmprestimo() == 0) {
 				do {
