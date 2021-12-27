@@ -5,15 +5,17 @@ public class Cliente {
 	private String nomeCliente;
 	private String enderecoCliente;
 	private long cpf;
+	private int posicaoCadastro;
 	private String livroEmprestado;
 	private int quantidadeEmprestimo;
 
 	// MÉTODO CONSTRUTOR - INICIO
-	public Cliente(String nomeCliente, String enderecoCliente, long cpf, String livroEmprestado,
+	public Cliente(String nomeCliente, String enderecoCliente, long cpf, int posicaoCadastro, String livroEmprestado,
 			int quantidadeEmprestimo) {
 		this.setNomeCliente(nomeCliente);
 		this.setEnderecoCliente(enderecoCliente);
 		this.setCpf(cpf);
+		this.setPosicaoCadastro(posicaoCadastro);
 		this.setLivroEmprestado(livroEmprestado);
 		this.setQuantidadeEmprestimo(quantidadeEmprestimo);
 	}
@@ -23,8 +25,8 @@ public class Cliente {
 	@Override
 	public String toString() {
 		return "\nNome do Cliente: " + nomeCliente + "\nEndereço Cliente: " + enderecoCliente + "\nCpf: " + cpf
-				+ "\nLivro Emprestado: " + livroEmprestado + "\nQuantidade Emprestimo: " + quantidadeEmprestimo
-				+ "\n--------------------------";
+				+ "\nPosição de Cadastro: " + posicaoCadastro + "\nLivro Emprestado: " + livroEmprestado
+				+ "\nQuantidade Emprestimo: " + quantidadeEmprestimo + "\n--------------------------";
 	}
 	// MÉTODO toSTRING - FINAL
 
@@ -68,6 +70,15 @@ public class Cliente {
 	public void setQuantidadeEmprestimo(int quantidadeEmprestimo) {
 		this.quantidadeEmprestimo = quantidadeEmprestimo;
 	}
+
+	public int getPosicaoCadastro() {
+		return posicaoCadastro;
+	}
+
+	public void setPosicaoCadastro(int posicaoCadastro) {
+		this.posicaoCadastro = posicaoCadastro;
+	}
+
 	// MÉTODOS ESPECIAIS - FINAL
 
 }

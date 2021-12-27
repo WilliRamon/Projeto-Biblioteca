@@ -6,14 +6,17 @@ public class Livro {
 	private String categoria;
 	private String autor;
 	private int codigo;
+	private int posicaoEstoque;
 	private int numeroPagina;
 	private int quantidadeEstoque;
 
-	public Livro(String titulo, String categoria, String autor, int codigo, int numeroPagina, int quantidadeEsoque) {
+	public Livro(String titulo, String categoria, String autor, int codigo, int posicaoEstoque, int numeroPagina,
+			int quantidadeEsoque) {
 		this.setTitulo(titulo);
 		this.setCategoria(categoria);
 		this.setAutor(autor);
 		this.setCodigo(codigo);
+		this.setPosicaoEstoque(posicaoEstoque);
 		this.setNumeroPagina(numeroPagina);
 		this.setQuantidadeEstoque(quantidadeEsoque);
 	}
@@ -21,8 +24,8 @@ public class Livro {
 	@Override
 	public String toString() {
 		return "\nLivro: " + titulo + "\nCategoria: " + categoria + "\nAutor: " + autor + "\nCodigo: " + codigo
-				+ "\nNumeroPagina: " + numeroPagina + "\nQuantidade em Estoque: " + quantidadeEstoque
-				+ "\n--------------------------";
+				+ "\nPosição no Estoque: " + posicaoEstoque + "\nNumeroPagina: " + numeroPagina
+				+ "\nQuantidade em Estoque: " + quantidadeEstoque + "\n--------------------------";
 	}
 
 	public String getTitulo() {
@@ -55,6 +58,14 @@ public class Livro {
 
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
+	}
+
+	public int getPosicaoEstoque() {
+		return posicaoEstoque;
+	}
+
+	public void setPosicaoEstoque(int posicaoEstoque) {
+		this.posicaoEstoque = posicaoEstoque;
 	}
 
 	public int getNumeroPagina() {
