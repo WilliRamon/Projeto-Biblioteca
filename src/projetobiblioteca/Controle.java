@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Controle implements Sistema {
 	Scanner ler = new Scanner(System.in);
-	Livro livro = new Livro(null, null, null, 0, 0, 0, 0);
-	Cliente cliente = new Cliente(null, null, 0, 0, null, 0);
+	Livro livro = new Livro();
+	Cliente cliente = new Cliente();
 	ArrayList<Livro> listaLivro = new ArrayList<>();
 	ArrayList<Cliente> listaCliente = new ArrayList<>();
 

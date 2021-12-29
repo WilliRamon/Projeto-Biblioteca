@@ -10,6 +10,10 @@ public class Cliente {
 	private int quantidadeEmprestimo;
 
 	// MÉTODO CONSTRUTOR - INICIO
+	public Cliente() {
+		
+	}
+	
 	public Cliente(String nomeCliente, String enderecoCliente, long cpf, int posicaoCadastro, String livroEmprestado,
 			int quantidadeEmprestimo) {
 		this.setNomeCliente(nomeCliente);

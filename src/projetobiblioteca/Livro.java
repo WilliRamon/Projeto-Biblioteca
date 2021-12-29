@@ -9,6 +9,10 @@ public class Livro {
 	private int posicaoEstoque;
 	private int numeroPagina;
 	private int quantidadeEstoque;
+	
+	public Livro() {
+		
+	}
 
 	public Livro(String titulo, String categoria, String autor, int codigo, int posicaoEstoque, int numeroPagina,
 			int quantidadeEsoque) {
